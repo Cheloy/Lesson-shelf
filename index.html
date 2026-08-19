@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Shelf</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><h1>Lesson Shelf</h1></a>
+  <span class="tagline">a little tutoring library</span>
+</header>
+
+<main class="shelf">
+  <p class="intro">Pick a subject to see its lessons. Videos get added here whenever a new one's ready — check back anytime.</p>
+  <div class="tab-grid" id="tab-grid"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+  const grid = document.getElementById('tab-grid');
+  const tilts = [-1.2, 0.8, -0.5, 1.4, -1.6, 0.6];
+
+  SUBJECTS.forEach((subject, i) => {
+    const a = document.createElement('a');
+    a.className = `tab-card accent-${subject.accent}`;
+    a.href = `subject.html?subject=${encodeURIComponent(subject.slug)}`;
+    a.style.setProperty('--tilt', `${tilts[i % tilts.length]}deg`);
+    a.innerHTML = `
+      <div class="tab-ear"></div>
+      <div class="tab-body">
+        <h2>${subject.name}</h2>
+        <div class="count">${subject.lessons.length} lesson${subject.lessons.length === 1 ? '' : 's'}</div>
+      </div>
+    `;
+    grid.appendChild(a);
+  });
+
+  if (SUBJECTS.length === 0) {
+    grid.innerHTML = `<p style="color: rgba(32,31,38,0.6);">No subjects yet — add one in data.js.</p>`;
+  }
+</script>
+
+</body>
+</html>
