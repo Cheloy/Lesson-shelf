@@ -38,8 +38,8 @@
 
 const SUBJECTS = [
   {
-    slug: "precal"
-    name: "Pre Calculus"
+    slug: "precal",
+    name: "Pre Calculus",
     accent: "brick",
     lessons: [
       {
