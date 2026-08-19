@@ -237,13 +237,6 @@ main.course {
   flex-shrink: 0;
 }
 
-.lesson-item:hover { background: var(--paper-dim); }
-.lesson-item.active {
-  background: var(--paper-dim);
-  border-left-color: var(--tab-color, var(--navy));
-  font-weight: 600;
-}
-
 .player-wrap {
   min-width: 0;
 }
