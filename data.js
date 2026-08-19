@@ -55,6 +55,23 @@ const SUBJECTS = [
     ]
   },
   {
+    slug: "arduinotwo",
+    name: "Arduino 2.0",
+    accent: "cyan",
+    lessons: [
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet..."
+      },
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet..."
+      }
+    ]
+  },
+  {
     slug: "math",
     name: "Math",
     accent: "amber",
