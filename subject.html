@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Shelf</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><h1 id="subject-title">Lesson Shelf</h1></a>
+  <a class="back-link" href="index.html">&larr; all subjects</a>
+</header>
+
+<main class="course" id="course-root">
+  <!-- filled in by script -->
+</main>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('subject');
+  const subject = SUBJECTS.find(s => s.slug === slug);
+  const root = document.getElementById('course-root');
+
+  function embedUrl(id) {
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  if (!subject) {
+    root.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">
+      <p>Couldn't find that subject. <a href="index.html">Go back to all subjects</a>.</p>
+    </div>`;
+  } else if (subject.lessons.length === 0) {
+    document.getElementById('subject-title').textContent = subject.name;
+    root.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">
+      <p>No lessons in ${subject.name} yet — add one in data.js.</p>
+    </div>`;
+  } else {
+    document.getElementById('subject-title').textContent = subject.name;
+    document.title = `${subject.name} — Lesson Shelf`;
+
+    root.innerHTML = `
+      <nav class="lesson-list accent-${subject.accent}">
+        <h2>${subject.name} lessons</h2>
+        <div id="lesson-buttons"></div>
+      </nav>
+      <div class="player-wrap">
+        <div class="player-frame">
+          <iframe id="player" src="" title="lesson video" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="lesson-meta">
+          <h1 id="lesson-title"></h1>
+          <p id="lesson-notes"></p>
+        </div>
+      </div>
+    `;
+
+    const btnWrap = document.getElementById('lesson-buttons');
+
+    function showLesson(index) {
+      const lesson = subject.lessons[index];
+      document.getElementById('player').src = embedUrl(lesson.youtubeId);
+      document.getElementById('lesson-title').textContent = lesson.title;
+      document.getElementById('lesson-notes').textContent = lesson.notes || '';
+      [...btnWrap.children].forEach((el, i) => el.classList.toggle('active', i === index));
+    }
+
+    subject.lessons.forEach((lesson, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'lesson-item';
+      btn.innerHTML = `<span class="n">${String(i + 1).padStart(2, '0')}</span><span>${lesson.title}</span>`;
+      btn.addEventListener('click', () => showLesson(i));
+      btnWrap.appendChild(btn);
+    });
+
+    showLesson(0);
+  }
+</script>
+
+</body>
+</html>
