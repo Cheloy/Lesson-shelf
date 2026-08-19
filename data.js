@@ -48,14 +48,14 @@ const SUBJECTS = [
         notes: "Quick guide by Angelo on how to solve Nonlinear Systems."
       },
       {
-        title: "Solving for X",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "Basic one-step and two-step equations."
+        notes: "Nothing to see here yet..."
       },
       {
-        title: "Intro to Percentages",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "Percent, decimal, and fraction — how they relate."
+        notes: "Nothing to see here yet..."
       }
     ]
   },
@@ -65,14 +65,14 @@ const SUBJECTS = [
     accent: "teal",
     lessons: [
       {
-        title: "The Water Cycle",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "Evaporation, condensation, precipitation, collection."
+        notes: "Nothing to see here yet..."
       },
       {
-        title: "Cells 101",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "Plant vs animal cells and their main parts."
+        notes: "Nothing to see here yet..."
       }
     ]
   },
@@ -82,14 +82,14 @@ const SUBJECTS = [
     accent: "plum",
     lessons: [
       {
-        title: "Writing a Thesis Statement",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "How to turn a topic into an arguable claim."
+        notes: "Nothing to see here yet..."
       },
       {
-        title: "Comma Rules That Actually Matter",
+        title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "The 4 comma rules that fix 90% of mistakes."
+        notes: "Nothing to see here yet..."
       }
     ]
   }
