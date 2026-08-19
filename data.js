@@ -38,6 +38,23 @@
 
 const SUBJECTS = [
   {
+    slug: "precal"
+    name: "Pre Calculus"
+    accent: "brick",
+    lessons: [
+      {
+        title: "Nonlinear Systems",
+        youtubeId: "L3UoupdeLag",
+        notes: "Quick guide by Angelo on how to solve Nonlinear Systems."
+      },
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet..."
+      }
+    ]
+  },
+  {
     slug: "math",
     name: "Math",
     accent: "amber",
