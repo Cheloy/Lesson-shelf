@@ -60,9 +60,9 @@ const SUBJECTS = [
     accent: "amber",
     lessons: [
       {
-        title: "Nonlinear Systems",
-        youtubeId: "L3UoupdeLag",
-        notes: "Quick guide by Angelo on how to solve Nonlinear Systems."
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet..."
       },
       {
         title: "Placeholder!",
