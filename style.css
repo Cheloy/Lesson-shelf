@@ -164,6 +164,26 @@ main.shelf > p.intro {
 
 /* ---------- Subject page ---------- */
 
+.lesson-item:hover { background: var(--paper-dim); }
+.lesson-item.active {
+  background: var(--paper-dim);
+  border-left-color: var(--tab-color, var(--navy));
+  font-weight: 600;
+}
+
+.lesson-item .done-check {
+  accent-color: var(--tab-color, var(--navy));
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.lesson-item.done span:not(.n) {
+  color: rgba(32,31,38,0.45);
+  text-decoration: line-through;
+}
+
 main.course {
   max-width: 1100px;
   margin: 0 auto;
