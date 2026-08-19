@@ -93,8 +93,9 @@
     const completedTitles = getCompleted();
 
     subject.lessons.forEach((lesson, i) => {
-      const btn = document.createElement('button');
+      const btn = document.createElement('div');
       btn.className = 'lesson-item';
+      btn.tabIndex = 0;
       if (completedTitles.includes(lesson.title)) btn.classList.add('done');
 
       btn.innerHTML = `
