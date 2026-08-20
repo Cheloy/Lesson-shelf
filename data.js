@@ -75,7 +75,7 @@ const SUBJECTS = [
   },
   {
     slug: "arduinotwo",
-    name: "Arduino 2.0",
+    name: "Arduino 2",
     accent: "cyan",
     lessons: [
       {
@@ -94,7 +94,7 @@ const SUBJECTS = [
   },
   {
     slug: "math",
-    name: "Math",
+    name: "General Math",
     accent: "amber",
     lessons: [
       {
@@ -119,7 +119,7 @@ const SUBJECTS = [
   },
   {
     slug: "science",
-    name: "Science",
+    name: "General Science",
     accent: "teal",
     lessons: [
       {
@@ -138,7 +138,7 @@ const SUBJECTS = [
   },
   {
     slug: "english",
-    name: "English",
+    name: "Effective Communication",
     accent: "plum",
     lessons: [
       {
