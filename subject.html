@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 11th Library</title>
+<title>Lesson Shelf</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="index.html"><h1 id="subject-title">The 11th Library</h1></a>
+  <a class="brand" href="index.html"><h1 id="subject-title">Lesson Shelf</h1></a>
   <a class="back-link" href="index.html">&larr; all subjects</a>
 </header>
 
@@ -39,7 +39,7 @@
     </div>`;
   } else {
     document.getElementById('subject-title').textContent = subject.name;
-    document.title = `${subject.name} — The 11th Library`;
+    document.title = `${subject.name} — Lesson Shelf`;
 
     root.innerHTML = `
       <nav class="lesson-list accent-${subject.accent}">
@@ -60,9 +60,6 @@
     const btnWrap = document.getElementById('lesson-buttons');
 
     // ---- completed-lesson tracking (saved in the browser via localStorage) ----
-    // Each subject gets its own storage key. We save an array of completed
-    // lesson TITLES (not index numbers) so checkmarks don't get scrambled
-    // if you reorder or add lessons later.
     const storageKey = `lessonshelf-completed-${subject.slug}`;
 
     function getCompleted() {
@@ -87,34 +84,86 @@
       document.getElementById('player').src = embedUrl(lesson.youtubeId);
       document.getElementById('lesson-title').textContent = lesson.title;
       document.getElementById('lesson-notes').textContent = lesson.notes || '';
-      [...btnWrap.children].forEach((el, i) => el.classList.toggle('active', i === index));
+      [...btnWrap.querySelectorAll('.lesson-item')].forEach(el => {
+        el.classList.toggle('active', Number(el.dataset.index) === index);
+      });
     }
 
     const completedTitles = getCompleted();
 
-    subject.lessons.forEach((lesson, i) => {
-      const btn = document.createElement('div');
-      btn.className = 'lesson-item';
-      btn.tabIndex = 0;
-      if (completedTitles.includes(lesson.title)) btn.classList.add('done');
+    // Group lessons by period, but keep each lesson's ORIGINAL index in
+    // subject.lessons so showLesson(index) and the video player still work.
+    PERIODS.forEach(periodName => {
+      const inThisPeriod = subject.lessons
+        .map((lesson, index) => ({ lesson, index }))
+        .filter(item => item.lesson.period === periodName);
 
-      btn.innerHTML = `
-        <input type="checkbox" class="done-check" ${completedTitles.includes(lesson.title) ? 'checked' : ''}>
-        <span class="n">${String(i + 1).padStart(2, '0')}</span>
-        <span>${lesson.title}</span>
-      `;
+      if (inThisPeriod.length === 0) return; // skip empty periods
 
-      // clicking the checkbox toggles "done" without also switching the video
-      const checkbox = btn.querySelector('.done-check');
-      checkbox.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleCompleted(lesson.title);
-        btn.classList.toggle('done');
+      const heading = document.createElement('h3');
+      heading.className = 'period-heading';
+      heading.textContent = periodName;
+      btnWrap.appendChild(heading);
+
+      inThisPeriod.forEach(({ lesson, index }) => {
+        const btn = document.createElement('div');
+        btn.className = 'lesson-item';
+        btn.tabIndex = 0;
+        btn.dataset.index = index;
+        if (completedTitles.includes(lesson.title)) btn.classList.add('done');
+
+        btn.innerHTML = `
+          <input type="checkbox" class="done-check" ${completedTitles.includes(lesson.title) ? 'checked' : ''}>
+          <span>${lesson.title}</span>
+        `;
+
+        const checkbox = btn.querySelector('.done-check');
+        checkbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleCompleted(lesson.title);
+          btn.classList.toggle('done');
+        });
+
+        btn.addEventListener('click', () => showLesson(index));
+        btnWrap.appendChild(btn);
       });
-
-      btn.addEventListener('click', () => showLesson(i));
-      btnWrap.appendChild(btn);
     });
+
+    // Lessons with a period that doesn't match anything in PERIODS
+    // (typo, or not assigned yet) still show up here so nothing gets lost.
+    const unsorted = subject.lessons
+      .map((lesson, index) => ({ lesson, index }))
+      .filter(item => !PERIODS.includes(item.lesson.period));
+
+    if (unsorted.length > 0) {
+      const heading = document.createElement('h3');
+      heading.className = 'period-heading';
+      heading.textContent = 'Unsorted';
+      btnWrap.appendChild(heading);
+
+      unsorted.forEach(({ lesson, index }) => {
+        const btn = document.createElement('div');
+        btn.className = 'lesson-item';
+        btn.tabIndex = 0;
+        btn.dataset.index = index;
+        if (completedTitles.includes(lesson.title)) btn.classList.add('done');
+
+        btn.innerHTML = `
+          <input type="checkbox" class="done-check" ${completedTitles.includes(lesson.title) ? 'checked' : ''}>
+          <span>${lesson.title}</span>
+        `;
+
+        const checkbox = btn.querySelector('.done-check');
+        checkbox.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleCompleted(lesson.title);
+          btn.classList.toggle('done');
+        });
+
+        btn.addEventListener('click', () => showLesson(index));
+        btnWrap.appendChild(btn);
+      });
+    }
 
     showLesson(0);
   }
