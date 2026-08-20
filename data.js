@@ -81,7 +81,7 @@ const SUBJECTS = [
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
-        notes: "Nothing to see here yet..."m
+        notes: "Nothing to see here yet...",
         period: "1st Term Finals"
       }
     ]
