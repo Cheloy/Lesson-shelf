@@ -3,18 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 11th Library</title>
+<title>Lesson Shelf</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="index.html"><h1>The 11th Library</h1></a>
-  <span class="tagline">a little tutoring website project</span>
+  <a class="brand" href="index.html"><h1>Lesson Shelf</h1></a>
+  <span class="tagline">a little tutoring library</span>
 </header>
 
 <main class="shelf">
   <p class="intro">Pick a subject to see its lessons. Videos get added here whenever a new one's ready — check back anytime.</p>
+
+  <input
+    type="text"
+    id="search-box"
+    class="search-box"
+    placeholder="Search all lessons..."
+    autocomplete="off"
+  >
+  <div id="search-results" class="search-results"></div>
+
   <div class="tab-grid" id="tab-grid"></div>
 </main>
 
@@ -41,6 +51,50 @@
   if (SUBJECTS.length === 0) {
     grid.innerHTML = `<p style="color: rgba(32,31,38,0.6);">No subjects yet — add one in data.js.</p>`;
   }
+
+  // ---- search across every subject's lessons ----
+  const searchBox = document.getElementById('search-box');
+  const resultsBox = document.getElementById('search-results');
+
+  // Build one flat list of every lesson, remembering which subject
+  // (and which position in that subject's lessons array) it came from.
+  const allLessons = [];
+  SUBJECTS.forEach(subject => {
+    subject.lessons.forEach((lesson, index) => {
+      allLessons.push({ subject, lesson, index });
+    });
+  });
+
+  searchBox.addEventListener('input', () => {
+    const query = searchBox.value.trim().toLowerCase();
+
+    if (query === '') {
+      resultsBox.innerHTML = '';
+      resultsBox.classList.remove('open');
+      grid.style.display = '';
+      return;
+    }
+
+    const matches = allLessons.filter(({ lesson }) =>
+      lesson.title.toLowerCase().includes(query) ||
+      (lesson.notes || '').toLowerCase().includes(query)
+    );
+
+    grid.style.display = 'none';
+    resultsBox.classList.add('open');
+
+    if (matches.length === 0) {
+      resultsBox.innerHTML = `<p class="no-results">No lessons match "${searchBox.value}".</p>`;
+      return;
+    }
+
+    resultsBox.innerHTML = matches.map(({ subject, lesson, index }) => `
+      <a class="result-item" href="subject.html?subject=${encodeURIComponent(subject.slug)}&lesson=${index}">
+        <span class="result-subject accent-${subject.accent}">${subject.name}</span>
+        <span class="result-title">${lesson.title}</span>
+      </a>
+    `).join('');
+  });
 </script>
 
 </body>
