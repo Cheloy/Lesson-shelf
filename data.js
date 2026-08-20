@@ -83,12 +83,6 @@ const SUBJECTS = [
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet...",
         period: "1st Term Finals"
-      },
-      {
-        title: "Placeholder!",
-        youtubeId: "dQw4w9WgXcQ",
-        notes: "Nothing to see here yet...",
-        period: "1st Term Finals"
       }
     ]
   },
@@ -147,6 +141,32 @@ const SUBJECTS = [
         notes: "Nothing to see here yet...",
         period: "1st Term Finals"
       },
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet...",
+        period: "1st Term Finals"
+      }
+    ]
+  },
+  {
+    slug: "physics",
+    name: "Physics",
+    accent: "cyan",
+    lessons: [
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet...",
+        period: "1st Term Finals"
+      }
+    ]
+  },
+  {
+    slug: "chemistryone",
+    name: "Chemistry 1",
+    accent: "cyan",
+    lessons: [
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
