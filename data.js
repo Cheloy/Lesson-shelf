@@ -36,6 +36,16 @@
     and fill in its lessons.
 */
 
+
+const PERIODS = [
+  "1st Term Finals",
+  "2nd Term Midterm",
+  "2nd Term Finals",
+  "3rd Term Midterm",
+  "3rd Term Finals"
+];
+
+
 const SUBJECTS = [
   {
     slug: "precal",
