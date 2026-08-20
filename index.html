@@ -11,19 +11,25 @@
 <header class="site-header">
   <a class="brand" href="index.html"><h1>Lesson Shelf</h1></a>
   <span class="tagline">a little tutoring library</span>
+
+  <div class="header-search">
+    <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M11.5 11.5L14.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input
+      type="text"
+      id="search-box"
+      class="search-box"
+      placeholder="Search all lessons..."
+      autocomplete="off"
+    >
+    <div id="search-results" class="search-results"></div>
+  </div>
 </header>
 
 <main class="shelf">
   <p class="intro">Pick a subject to see its lessons. Videos get added here whenever a new one's ready — check back anytime.</p>
-
-  <input
-    type="text"
-    id="search-box"
-    class="search-box"
-    placeholder="Search all lessons..."
-    autocomplete="off"
-  >
-  <div id="search-results" class="search-results"></div>
 
   <div class="tab-grid" id="tab-grid"></div>
 </main>
