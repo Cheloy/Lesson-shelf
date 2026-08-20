@@ -82,8 +82,7 @@
     }
 
     const matches = allLessons.filter(({ lesson }) =>
-      lesson.title.toLowerCase().includes(query) ||
-      (lesson.notes || '').toLowerCase().includes(query)
+     lesson.title.toLowerCase().includes(query)
     );
 
     grid.style.display = 'none';
