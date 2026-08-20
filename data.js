@@ -38,6 +38,7 @@
 
 
 const PERIODS = [
+  "1st Term Midterm",
   "1st Term Finals",
   "2nd Term Midterm",
   "2nd Term Finals",
@@ -56,11 +57,13 @@ const SUBJECTS = [
         title: "Nonlinear Systems",
         youtubeId: "L3UoupdeLag",
         notes: "Quick guide by Angelo on how to solve Nonlinear Systems."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       }
     ]
   },
@@ -73,11 +76,13 @@ const SUBJECTS = [
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       }
     ]
   },
@@ -90,16 +95,19 @@ const SUBJECTS = [
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       }
     ]
   },
@@ -112,11 +120,13 @@ const SUBJECTS = [
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       }
     ]
   },
@@ -129,11 +139,13 @@ const SUBJECTS = [
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       },
       {
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet..."
+        period: "1st Term Finals",
       }
     ]
   }
