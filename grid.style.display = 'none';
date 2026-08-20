@@ -77,7 +77,6 @@
     if (query === '') {
       resultsBox.innerHTML = '';
       resultsBox.classList.remove('open');
-      grid.style.display = '';
       return;
     }
 
@@ -85,7 +84,6 @@
      lesson.title.toLowerCase().includes(query)
     );
 
-    grid.style.display = 'none';
     resultsBox.classList.add('open');
 
     if (matches.length === 0) {
