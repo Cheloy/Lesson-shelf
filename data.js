@@ -63,7 +63,13 @@ const SUBJECTS = [
         title: "Placeholder!",
         youtubeId: "dQw4w9WgXcQ",
         notes: "Nothing to see here yet...",
-        period: "1st Term Finals"
+        period: "2nd Term Midterm"
+      },
+      {
+        title: "Placeholder!",
+        youtubeId: "dQw4w9WgXcQ",
+        notes: "Nothing to see here yet...",
+        period: "3rd Term Finals"
       }
     ]
   },
