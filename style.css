@@ -340,10 +340,6 @@ main.course {
 
 .lesson-item .done-check {
   accent-color: var(--tab-color, var(--navy));
-  width:
-
-.lesson-item .done-check {
-  accent-color: var(--tab-color, var(--navy));
   width: 15px;
   height: 15px;
   flex-shrink: 0;
