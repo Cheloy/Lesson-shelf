@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Shelf</title>
+<title>The 11th Library</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="index.html"><h1 id="subject-title">Lesson Shelf</h1></a>
+  <a class="brand" href="index.html"><h1 id="subject-title">The 11th Library</h1></a>
   <a class="back-link" href="index.html">&larr; all subjects</a>
 </header>
 
@@ -39,7 +39,7 @@
     </div>`;
   } else {
     document.getElementById('subject-title').textContent = subject.name;
-    document.title = `${subject.name} — Lesson Shelf`;
+    document.title = `${subject.name} — The 11th Library`;
 
     root.innerHTML = `
       <nav class="lesson-list accent-${subject.accent}">
