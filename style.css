@@ -54,9 +54,9 @@ a { color: inherit; }
 .site-header {
   background: var(--navy);
   color: var(--paper);
-  padding: 22px clamp(20px, 5vw, 56px);
+  padding: 18px clamp(20px, 5vw, 56px);
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -74,6 +74,68 @@ a { color: inherit; }
   color: rgba(250,246,236,0.6);
   font-size: 0.9rem;
 }
+
+.header-search {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  width: 260px;
+  max-width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: rgba(250,246,236,0.55);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.header-search:focus-within .search-icon {
+  color: var(--amber);
+}
+
+.search-box {
+  width: 100%;
+  padding: 10px 16px 10px 38px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: var(--paper);
+  background: rgba(250,246,236,0.1);
+  border: 1px solid rgba(250,246,236,0.18);
+  border-radius: 999px;
+  outline: none;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-box::placeholder { color: rgba(250,246,236,0.5); }
+.search-box:hover { background: rgba(250,246,236,0.14); }
+.search-box:focus {
+  background: rgba(250,246,236,0.16);
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(229,163,57,0.22);
+}
+
+.search-results {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 340px;
+  max-width: 80vw;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 10px;
+  z-index: 20;
+}
+.search-results.open { display: flex; }
 
 .back-link {
   text-decoration: none;
@@ -100,34 +162,6 @@ main.shelf > p.intro {
   color: rgba(32,31,38,0.7);
   margin-bottom: 40px;
 }
-
-.search-box {
-  width: 100%;
-  max-width: 420px;
-  padding: 12px 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  color: var(--ink);
-  background: var(--paper-dim);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  margin-bottom: 8px;
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.search-box:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(30,42,71,0.1);
-}
-
-.search-results {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  max-width: 420px;
-  margin-bottom: 32px;
-}
-.search-results.open { display: flex; }
 
 .result-item {
   display: flex;
@@ -291,4 +325,19 @@ main.course {
 }
 
 .lesson-item .n {
-  font-family: 'IBM Plex Mono',
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(32,31,38,0.45);
+  flex-shrink: 0;
+}
+
+.lesson-item:hover { background: var(--paper-dim); }
+.lesson-item.active {
+  background: var(--paper-dim);
+  border-left-color: var(--tab-color, var(--navy));
+  font-weight: 600;
+}
+
+.lesson-item .done-check {
+  accent-color: var(--tab-color, var(--navy));
+  width:
