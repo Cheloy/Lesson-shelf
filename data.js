@@ -132,7 +132,7 @@ const SUBJECTS = [
   },
   {
     slug: "english",
-    name: "Effective Communication",
+    name: "Effective Comms",
     accent: "plum",
     lessons: [
       {
