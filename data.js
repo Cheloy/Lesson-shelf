@@ -89,7 +89,7 @@ const SUBJECTS = [
   {
     slug: "math",
     name: "General Math",
-    accent: "amber",
+    accent: "blue",
     lessons: [
       {
         title: "Placeholder!",
