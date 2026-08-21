@@ -16,6 +16,8 @@
   --brick-ink: #4A2018;
   --cyan: #3a95a3;
   --cyan-ink: #183b4a;
+  --green: #3ea33a;
+  --green-ink: #194a18; 
   --line: rgba(32,31,38,0.14);
   --shadow: 0 10px 24px rgba(30,42,71,0.16);
   --radius: 10px;
@@ -254,6 +256,8 @@ main.shelf > p.intro {
 .accent-plum  { --tab-color: var(--plum); }
 .accent-brick { --tab-color: var(--brick); }
 .accent-cyan  { --tab-color: var(--cyan); }
+.accent-green { --tab-color: var(--green); }
+
 
 /* ---------- Subject page ---------- */
 
