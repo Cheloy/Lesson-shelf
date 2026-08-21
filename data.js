@@ -51,7 +51,7 @@ const SUBJECTS = [
   {
     slug: "precal",
     name: "Pre Calculus",
-    accent: "brick",
+    accent: "plum",
     lessons: [
       {
         title: "Nonlinear Systems",
@@ -114,7 +114,7 @@ const SUBJECTS = [
   {
     slug: "science",
     name: "General Science",
-    accent: "teal",
+    accent: "green",
     lessons: [
       {
         title: "Placeholder!",
@@ -133,7 +133,7 @@ const SUBJECTS = [
   {
     slug: "english",
     name: "Effective Comms",
-    accent: "plum",
+    accent: "brick",
     lessons: [
       {
         title: "Placeholder!",
@@ -165,7 +165,7 @@ const SUBJECTS = [
   {
     slug: "chemistryone",
     name: "Chemistry 1",
-    accent: "cyan",
+    accent: "teal",
     lessons: [
       {
         title: "Placeholder!",
