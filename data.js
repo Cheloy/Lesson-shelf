@@ -79,9 +79,9 @@ const SUBJECTS = [
     accent: "plant",
     lessons: [
       {
-        title: "Placeholder!",
-        youtubeId: "dQw4w9WgXcQ",
-        notes: "Nothing to see here yet...",
+        title: "Basic Arduino Programming",
+        youtubeId: "7446OoIyJk8",
+        notes: "Quick review on arduino programming on Tinkercad. It includes variables, functions, operations, and conditional statements.",
         period: "1st Term Finals"
       }
     ]
