@@ -76,7 +76,7 @@ const SUBJECTS = [
   {
     slug: "arduinotwo",
     name: "Arduino 2",
-    accent: "cyan",
+    accent: "plant",
     lessons: [
       {
         title: "Placeholder!",
@@ -152,7 +152,7 @@ const SUBJECTS = [
   {
     slug: "physics",
     name: "Physics",
-    accent: "plant",
+    accent: "cyan",
     lessons: [
       {
         title: "Placeholder!",
